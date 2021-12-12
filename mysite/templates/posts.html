@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+{%load static %}
+{% static "images" as baseUrl %}
+{% block title %}
+NewPost
+{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 style="
+    position: absolute;
+    left: 636px;
+" >New Post</h1><br><br>
+<form action="posts" method ="POST" >
+    {%csrf_token%}
+<div class="mb-3">
+    <label for="feedback" class="form-label">Description</label>
+    <textarea class="form-control" id="feedback" name="desc" placeholder="Type your description" rows="2"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="img" class="form-label">IMAGE</label>
+    <input type="file" class="form-control" id="image" href="pics/{{img}}" name="img"  rows="3"></textarea>
+  </div>  
+
+  <div class="mb-3">
+    <label for="integer" class="form-name">Price</label>
+    <input type="number" class="form-control" id="price" name = 'price' placeholder="Enter Price">
+  </div>
+
+  <button class= "btn btn-primary" type="submit">UPLOAD</button>
+
+
+
+</form>
+
+</body>
+</html>
+{% endblock body %}

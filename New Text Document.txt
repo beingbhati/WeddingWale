@@ -1,0 +1,1 @@
+copy js and fonts in assets/admin

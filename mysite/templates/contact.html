@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+contact
+{% endblock title %}
+{% block body %}
+<div class="container">
+ <img src="https://source.unsplash.com/1600x600/?communication" class="d-block w-100" alt="...">
+ </div>
+<div class="container my-2">
+<h1 style="
+    position: absolute;
+    left: 636px;
+">Contact Us</h1>
+
+
+
+<div class="container">
+<form method="post" action = "contact">
+{% csrf_token %}
+<div class="mb-10 py-5">
+  <label for="exampleFormControlInput1" class="form-name">Name</label>
+  <input type="text" class="form-control" id="name" name = 'name' placeholder="Enter your name">
+</div>
+
+<div class="mb-3">
+  <label for="email" class="form-name">Email</label>
+  <input type="email" class="form-control" id="email" name = 'email' placeholder="eg.- abc@gmail.com">
+</div>
+
+
+<div class="mb-3">
+  <label for="feedback" class="form-label">Feedback</label>
+  <textarea class="form-control" id="feedback" name="feedback" placeholder="Type your feedback/query" rows="3"></textarea>
+</div>
+<button class= "btn btn-primary" type="submit">Submit</button>
+
+</form>
+
+{%for message in messages%}
+<div id="liveAlertPlaceholder"></div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn" style="position: absolute;top: 7px; right: 664px;">{{message}}</button>
+{%endfor%}
+
+</div>
+{% endblock body %}
